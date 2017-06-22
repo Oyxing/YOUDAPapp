@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../css/examine.css">
+</head>
+<body>
+<div class="container ceiling" >
+        <div class="col-xs-10 col-sm-offset-2 col-md-6 col-md-offset-1 " >
+            <img class="img-responsive"  src="../image/logo.png" alt="">
+        </div>
+        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3" >
+            <div class="input">
+                <select class="btn">
+                    <option value="nihao">中英</option>
+                    <option value="nihao">英中</option>
+                </select>
+                <input type="text" class="btn btn-width discrete" name="q"  placeholder="输入翻译的文本" style="width:75%;border:1px solid #ccc;">
+                <input type="button" class="btn btn-danger" id="translate" name="" value="翻译">   
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid"> 
+        <div id="scontainer">
+            <div class="row">
+                <div class="col-md-2 content-lf">
+                    <ul class="nav nav-list">
+                        <li class="active"><a href="#">首页</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Library</a></li>
+                        <li><a href="#">Library</a></li>
+                    </ul>   
+                </div>
+                <div class="col-sm-offset-1 col-md-6 content-con"></div>
+                <div class="col-sm-offset-1 col-md-2 content-rt"></div>
+         </div>  
+         </div> 
+    </div>
+</body>
+    <script src="../dist/js/jquery.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../js/ment.js"></script>
+    <script>
+     var url = window.location.href;
+     var valLue = url.split("?")[1];  
+     val(valLue)
+     document.getElementById("translate").addEventListener('click', function() {
+                var value = $(".discrete").val();
+                val(value)
+		        });
+        function val(value){
+           $.ajax({
+                type: "get",
+                url: "../php/api.php",
+                dataType: "json",
+                data:{q:value,},
+                success: function(data) {
+                    console.log("1")
+                    var obj=JSON.parse(data)
+                        console.log(obj);
+                        var obj = data.data
+                         $.each(obj, function(index, vl){
+                           console.log(vl)  
+                         })
+                    }
+              });
+         }       
+    </script>
+</html>

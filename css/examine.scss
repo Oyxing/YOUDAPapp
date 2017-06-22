@@ -1,0 +1,30 @@
+*{margin: 0;padding: 0;text-decoration: none;list-style: none;}
+.ceiling{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100px;
+    z-index: 999;
+    background-color: white;
+    transition: 2s all 0s ease;
+    box-shadow: 0px 2px 0px 0px #ccc;
+}
+#boc{position: relative;}
+#scontainer {
+    margin-top: 145px;
+    padding-top: 30px;
+    .content-lf{
+        min-height: 100px;
+        background-color: red;
+    }
+     .content-rt{
+         min-height: 100px;
+         background-color: #ff0;
+
+     }
+     .content-con{
+        min-height: 100px;
+         background-color: blue;
+     }
+}

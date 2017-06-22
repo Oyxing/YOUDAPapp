@@ -8,9 +8,8 @@
     <title>我的词典</title> 
     <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
-  
 </head>
-<body>
+<body onload="shop(x)">
       <!--导航-->
     <nav class="navbar navbar-default">
         <div class="container">
@@ -54,15 +53,35 @@
         <!-- /.container-fluid -->
     </nav>
         <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-5 " >
-            <img src="./image/logo.png" alt="">
+            <img class="img-responsive"  src="./image/logo.png" alt="">
         </div>
-    <div id="margin2"></div>
-        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 " >
+     <div class="container ceiling" >
+        <div class="col-xs-10 col-sm-offset-2 col-md-6 col-md-offset-1 " >
+            <img class="img-responsive"  src="./image/logo.png" alt="">
+        </div>
+        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3" style="width:56%;" >
             <div class="input">
-            <input type="text" class="btn btn-width" name="" placeholder="输入翻译的文本">
-            <input type="button" class="btn btn-danger"  name="" value="翻译">      
+                <select class="btn">
+                    <option value="nihao">中英</option>
+                    <option value="nihao">英中</option>
+                </select>
+                <input type="text" class="btn btn-width discrete" name="q"  placeholder="输入翻译的文本">
+                <input type="button" class="btn btn-danger" id="translate" name="" value="翻译">   
+            </div>
         </div>
     </div>
+    <div id="margin2"></div>
+        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 " style="width:56%;" >
+            <div class="input">
+                 <select class="btn">
+                    <option value="nihao">中英</option>
+                    <option value="nihao">英中</option>
+                </select>
+            <input type="text" class="btn btn-width discrete1" name="q" placeholder="输入翻译的文本">
+            <input type="button" class="btn btn-danger " id="translate1" name="" value="翻译">      
+        </div>
+    </div>
+  
     <div id="margin3">
         <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 hove-color" >
         <span><a href="#">下载词典客户端</a></span>|
@@ -75,10 +94,11 @@
     <div id="adv">
        <div class="col-xs-3 col-sm-offset-10 col-md-9 col-md-offset-1 hove-nav" >
             <div class="fl">
-                <div class="advnav" style="height:50px; background:#ff0;">
+                <div class="advnav" style="height:50px;">
                     <div class="head">
                         <div class="annav">
                             <span class="active">精选阅读</span>
+         
                             <span>必备课程</span>
                             <span>折扣精选</span>
                         </div>
@@ -86,28 +106,98 @@
                 </div>
                 <div id="vista">
                     <div class="news">
-                        <a href="#"><img src="./image/news.jpg" alt=""></a>
-                        <div class="news-detail">
+                        <a href="#"><img class="img-responsive" src="./image/news.jpg" alt=""></a>
+                        <div class="news-detail col-md-9 col-xs-6">
                             <h3><a href="#">小王子：即便他被所有人瞧不起，我也不会这样认为</a></h3>
                             <p></p>
-                            
+                            <div class="note1">
+                                <span class="glyphicon glyphicon-comment "></span>
+                                <span class="note-t">0</span>
+                                <span class="glyphicon glyphicon-thumbs-up "></span>
+                                <span class="note-t">0</span>
+                            </div>
+                            <div class="note2">
+                                <span class="note-t">使用</span>
+                                <span class="note-t">日期</span>
+                            </div>
+
                         </div>
                     </div>
-                </div>
             </div>
-            <div class="rt" >
+         </div>
+        <div class="rt" >  
+            <div class="popout ">
+                <iframe src=""></iframe>
+                <div class="hd">
+                    <a href="#">热门课程</a>
+                </div>
+                <div class="bd">
+                    <div class="camear">
+                        <a href="https://ke.youdao.com/course/detail/2879?vendor=youdaoshouye_cof_youbianlan">
+                            <img class="img-responsive" src="./image/kc1.png" alt="课程">
+                        </a>
+                        <div class="camear-detail">
+                            <a href="https://ke.youdao.com/course/detail/2879?vendor=youdaoshouye_cof_youbianlan">
+                                <h3>2017四六级冲刺训练计划课程</h3>
+                            </a>
+                            <p class="userNum">已报名:48459人</p>
+                            <p class="price">
+                                <span class="glyphicon glyphicon-yen"></span>
+                                0
+                            </p>
+                        </div>
+                    </div>
+                    <div class="camear">
+                        <a href="https://ke.youdao.com/course/detail/2895?vendor=youdaoshouye_cof_youbianlan">
+                            <img class="img-responsive" src="./image/kc2.jpg" alt="课程">
+                        </a>
+                        <div class="camear-detail">
+                            <a href="https://ke.youdao.com/course/detail/2895?vendor=youdaoshouye_cof_youbianlan">
+                                <h3>高中英语暴力提升计划</h3>
+                            </a>
+                            <p class="userNum">已报名:9173人</p>
+                            <p class="price">
+                                <span class="glyphicon glyphicon-yen"></span>
+                                0
+                            </p>
+                        </div>
+                    </div>
+                     <div class="camear">
+                        <a href="https://ke.youdao.com/course/detail/2990?vendor=youdaoshouye_cof_youbianlan">
+                            <img class="img-responsive" src="./image/kc3.jpg" alt="课程">
+                        </a>
+                        <div class="camear-detail">
+                            <a href="https://ke.youdao.com/course/detail/2990?vendor=youdaoshouye_cof_youbianlan">
+                                <h3>如何练就一口标准好听的美音</h3>
+                            </a>
+                            <p class="userNum">已报名:14259人</p>
+                            <p class="price">
+                                <span class="glyphicon glyphicon-yen"></span>
+                                0
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="rtnav" style="height:50px; background:red;"></div>
+                </div>
             </div>
         </div>
     </div>
-
-
-
-</body>
+    <div class="crl"></div>
+</body >
     <script src="./dist/js/jquery.js"></script>
     <script src="./dist/js/bootstrap.min.js"></script>
+    <script src="./js/ment.js"></script>
+    
+    
     <script>
-        
+          document.getElementById("translate").addEventListener('click', function() {
+                var value = $(".discrete").val();
+                location.href = "./dome/examine.html"+"?"+value;
+		        });      
+        document.getElementById("translate1").addEventListener('click', function() {
+                var value = $(".discrete1").val();              
+                location.href = "./dome/examine.html"+"?"+value;                
+		        });
+         
     </script>
 </html>
