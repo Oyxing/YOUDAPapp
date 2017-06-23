@@ -132,51 +132,8 @@
                     <a href="#">热门课程</a>
                 </div>
                 <div class="bd">
-                    <div class="camear">
-                        <a href="https://ke.youdao.com/course/detail/2879?vendor=youdaoshouye_cof_youbianlan">
-                            <img class="img-responsive" src="./image/kc1.png" alt="课程">
-                        </a>
-                        <div class="camear-detail">
-                            <a href="https://ke.youdao.com/course/detail/2879?vendor=youdaoshouye_cof_youbianlan">
-                                <h3>2017四六级冲刺训练计划课程</h3>
-                            </a>
-                            <p class="userNum">已报名:48459人</p>
-                            <p class="price">
-                                <span class="glyphicon glyphicon-yen"></span>
-                                0
-                            </p>
-                        </div>
-                    </div>
-                    <div class="camear">
-                        <a href="https://ke.youdao.com/course/detail/2895?vendor=youdaoshouye_cof_youbianlan">
-                            <img class="img-responsive" src="./image/kc2.jpg" alt="课程">
-                        </a>
-                        <div class="camear-detail">
-                            <a href="https://ke.youdao.com/course/detail/2895?vendor=youdaoshouye_cof_youbianlan">
-                                <h3>高中英语暴力提升计划</h3>
-                            </a>
-                            <p class="userNum">已报名:9173人</p>
-                            <p class="price">
-                                <span class="glyphicon glyphicon-yen"></span>
-                                0
-                            </p>
-                        </div>
-                    </div>
-                     <div class="camear">
-                        <a href="https://ke.youdao.com/course/detail/2990?vendor=youdaoshouye_cof_youbianlan">
-                            <img class="img-responsive" src="./image/kc3.jpg" alt="课程">
-                        </a>
-                        <div class="camear-detail">
-                            <a href="https://ke.youdao.com/course/detail/2990?vendor=youdaoshouye_cof_youbianlan">
-                                <h3>如何练就一口标准好听的美音</h3>
-                            </a>
-                            <p class="userNum">已报名:14259人</p>
-                            <p class="price">
-                                <span class="glyphicon glyphicon-yen"></span>
-                                0
-                            </p>
-                        </div>
-                    </div>
+                 
+                    
 
                 </div>
             </div>
@@ -198,6 +155,42 @@
                 var value = $(".discrete1").val();              
                 location.href = "./dome/examine.html"+"?"+value;                
 		        });
-         
+                var html = "";
+          $.ajax({
+
+                  type: "get",
+                  url: "./php/1.php",
+                  dataType: "json",
+                  success: function(data) {		
+                      	 objx = data.media_sents_part.sent;
+                        $.each(objx,function(i,vl){
+                            console.log(vl.snippets.snippet[0])
+                            var imageUrl = vl.snippets.snippet[0].imageUrl;
+                            var source = vl.snippets.snippet[0].source;
+                            var sourceUrl =vl.snippets.snippet[0].sourceUrl;
+                            var name = vl.snippets.snippet[0].name;
+                            html = ' <div class="camear">'+
+                        '<a href='+sourceUrl+'>'+
+                            '<img class="img-responsive" src="'+imageUrl+'" alt='+name+'>'+
+                        '</a>'+
+                        '<div class="camear-detail">'+
+                            '<a href='+sourceUrl+'>'+
+                                '<h3>'+source+'</h3>'+
+                            '</a>'+
+                            '<p class="userNum">已报名:14259人</p>'+
+                            '<p class="price">'+
+                                '<span class="glyphicon glyphicon-yen"></span>'+
+                                '0'+
+                            '</p>'+
+                        '</div>'+
+                    '</div>'
+
+                             $('.bd').append(html);
+                               
+                        })
+                    
+                }
+            
+         })
     </script>
 </html>

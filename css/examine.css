@@ -5,6 +5,12 @@
   list-style: none;
 }
 
+a {
+  color: black;
+}
+a:hover{
+  text-decoration: none;
+}
 .ceiling {
   position: fixed;
   top: 0;
@@ -33,10 +39,42 @@
 
 #scontainer .content-rt {
   min-height: 100px;
-  background-color: #ff0;
+}
+
+#scontainer .content-rt .hd {
+  height: 44px;
+  line-height: 44px;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#scontainer .content-rt .rtNav .display {
+  display: none;
 }
 
 #scontainer .content-con {
   min-height: 100px;
-  background-color: blue;
+}
+
+#scontainer .content-con .noun li {
+  font-weight: bold;
+  color: #434343;
+}
+
+.shyTop {
+  margin-top: 0;
+  overflow: hidden;
+}
+
+.shyTop .h2-shy .pronounce {
+  margin-top: 3px;
+}
+
+.shyTop .h2-shy .pronounce .pronoun {
+  margin-right: 30px;
+  font-size: 14px;
+  color: #666;
+  display: inline-block;
+  line-height: 26px;
 }

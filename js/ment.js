@@ -18,6 +18,7 @@ var x = 1;
                  dH= $("#vista").height()
                  ws = $(window).scrollTop()
                 top = $(window).height()
+                console.log(top)
                 var wtop = ws + top.innerHeight;
                 if(wtop >= dH){
 
@@ -52,6 +53,8 @@ function shop (x){
                                 dataType: "json",
                                 success: function(data) {
                                         obj = data.data.content_list; 
+                                        console.log(typeof data)
+                                        console.log(obj)
                                  $.each(obj, function(index, vl) {
                                     // 文字
                                     forward = vl.forward;
@@ -92,6 +95,4 @@ function shop (x){
                     }
                   })	
                 }
-
-
-
+           

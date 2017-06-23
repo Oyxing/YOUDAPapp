@@ -1,8 +1,8 @@
 <?php
-    $work=$_GET["q"];  
-    // $work = "name";    
-    echo $work;
-    $url = "http://dict.youdao.com/jsonapi?jsonversion=2&client=mobile&q=".$work;
+    // $work=$_GET["q"];  
+    // // $work = "name";    
+    // echo $work;
+    $url = "http://dict.youdao.com/jsonapi";
     $ch = curl_init();
     $timeout = 5;
     curl_setopt ($ch, CURLOPT_URL, $url);

@@ -30,45 +30,66 @@
             <div class="row">
                 <div class="col-md-2 content-lf">
                     <ul class="nav nav-list">
-                        <li class="active"><a href="#">首页</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li><a href="#">Library</a></li>
+                        <li class="active"><a href="#">目录</a></li>
+                        <li><a href="#">释义</a></li>
+                        <li><a href="#">权威词典</a></li>
+                        <li><a href="#">例句</a></li>
                     </ul>   
                 </div>
-                <div class="col-sm-offset-1 col-md-6 content-con"></div>
-                <div class="col-sm-offset-1 col-md-2 content-rt"></div>
+                <div class="col-sm-offset-1 col-md-6 content-con">
+                    <div class="shyTab">
+                    </div>
+                    <div class="noun">
+                        <ul class="nounul">
+                        </ul>
+                    </div>
+
+                    <div class="com" style="margin-top:40px;">
+                        <div class="tabbable"> <!-- Only required for left/right tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab1" data-toggle="tab">网络释义</a></li>
+                                <li><a href="#tab2" data-toggle="tab">专业释义</a></li>
+                                <li><a href="#tab2" data-toggle="tab">英英释义</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active wtcont" id="tab1">
+
+                                </div>
+                                <div class="tab-pane" id="tab2"></div>
+                                <div class="tab-pane" id="tab2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-md-2 content-rt">
+                    <p class="hd">词组短语</p>
+                    <div class="rtNav">
+                        <div class="tnav"></div>
+                        <div class="footnav" style="cursor: pointer;color:#35a1d4;margin:0em 0.6em;" >
+                            <a href="#" class="glyphicon glyphicon-menu-down dowup" style="color:#35a1d4;"></a>
+                            <span class="more">更多</span>
+                            词组短语
+                        </div>
+                    </div>
+                    <div class="baner" style="margin-bottom: 15px;"> 
+                        <div class="baner-hear" style="width:100%;margin-top:10px; background-color:red;">
+                            <a href="https://lp.tutorabc.com.cn/lpgs/QSsHKDMZML/index.html?fromwhere=deg7SwfK6c&gsadid=gad_158_amnvx1z7&utm_medium=deg7SwfK6c&utm_source=%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E6%96%B0%E8%B4%A6%E6%88%B73&utm_channel=%E4%B8%AD%E5%88%86%E5%A4%96%E5%9B%BD%E5%A5%B3%E7%AF%87%E3%80%91&utm_account=VIPABC-DRA&utm_campaign=NONSEM&utm_content=%E8%AF%8D%E5%85%B8%2f250*250&utm_adgroup=%20%E9%95%BF%E7%89%88%E5%A7%9A%E6%98%8E%E8%BD%BB%E6%9D%BE%E7%AF%87&utm_term=20170520%E3%80%90%E8%AF%8D%E5%85%B8%2f250*250%2f%E4%B8%AD%E5%88%86%E5%A4%96%E5%9B%BD%E5%A5%B3%E7%AF%87%E3%80%91%20%E9%95%BF%E7%89%88%E5%A7%9A%E6%98%8E%E8%BD%BB%E6%9D%BE%E7%AF%87"><img src="../image/eg.jpg" class="img-responsive" style="width:100%;" alt="课程"></a>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
          </div>  
          </div> 
+
     </div>
 </body>
     <script src="../dist/js/jquery.js"></script>
     <script src="../dist/js/bootstrap.min.js"></script>
-    <script src="../js/ment.js"></script>
+    <script src="../js/ceiling.js"></script>
     <script>
-     var url = window.location.href;
-     var valLue = url.split("?")[1];  
-     val(valLue)
-     document.getElementById("translate").addEventListener('click', function() {
-                var value = $(".discrete").val();
-                val(value)
-		        });
-        function val(value){
-           $.ajax({
-                type: "get",
-                url: "../php/api.php",
-                dataType: "json",
-                data:{q:value,},
-                success: function(data) {
-                    console.log("1")
-                    var obj=JSON.parse(data)
-                        console.log(obj);
-                        var obj = data.data
-                         $.each(obj, function(index, vl){
-                           console.log(vl)  
-                         })
-                    }
-              });
-         }       
+    
     </script>
 </html>
