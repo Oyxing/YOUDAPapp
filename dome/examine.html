@@ -1,42 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-   <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../css/examine.css">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="../swiper/boner.css">
+
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+  
+    </style>
 </head>
+
 <body>
-<div class="container ceiling" >
-        <div class="col-xs-10 col-sm-offset-2 col-md-6 col-md-offset-1 " >
-            <img class="img-responsive"  src="../image/logo.png" alt="">
+    <div class="container ceiling">
+        <div class="col-xs-10 col-sm-offset-2 col-md-6 col-md-offset-1 ">
+            <img class="img-responsive" src="../image/logo.png" alt="">
         </div>
-        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3" >
+        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3">
             <div class="input">
                 <select class="btn">
                     <option value="nihao">中英</option>
                     <option value="nihao">英中</option>
                 </select>
-                <input type="text" class="btn btn-width discrete" name="q"  placeholder="输入翻译的文本" style="width:75%;border:1px solid #ccc;">
-                <input type="button" class="btn btn-danger" id="translate" name="" value="翻译">   
+                <input type="text" class="btn btn-width discrete" name="q" placeholder="输入翻译的文本" style="width:75%;border:1px solid #ccc;">
+                <input type="button" class="btn btn-danger" id="translate" name="" value="翻译">
             </div>
         </div>
     </div>
-    <div class="container-fluid"> 
+    
+    <div class="container-fluid">
         <div id="scontainer">
             <div class="row">
                 <div class="col-md-2 content-lf">
                     <ul class="nav nav-list">
                         <li class="active"><a href="#">目录</a></li>
-                        <li><a href="#">释义</a></li>
-                        <li><a href="#">权威词典</a></li>
-                        <li><a href="#">例句</a></li>
-                    </ul>   
+                        <li><a href="#para">释义</a></li>
+                        <li><a href="#dict">权威词典</a></li>
+                        <li><a href="#vowe">例句</a></li>
+                    </ul>
                 </div>
                 <div class="col-sm-offset-1 col-md-6 content-con">
+
+                    <div class="Youdao">
+                            <div class="ifrom">
+                                     <!-- Swiper -->
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide"><img class="img-responsive imgswip" src="../image/1.jpg" alt="图1"></div>
+                                        <div class="swiper-slide"><img class="img-responsive imgswip" src="../image/2.jpg" alt="图2"></div>
+                                        <div class="swiper-slide"><img class="img-responsive imgswip" src="../image/3.jpg" alt="图3"></div>
+                                        <div class="swiper-slide"><img class="img-responsive imgswip" src="../image/4.jpg" alt="图4"></div>
+                                        <div class="swiper-slide"><img class="img-responsive imgswip" src="../image/5.jpg" alt="图5"></div>          
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                             <div class="ifrom-lf" >
+                                <span>单词信息不全请点击</span>
+                                <span class="auth"><a href="#" title="点击这里">正版</a></span>
+                            </div>      
+                    </div>
                     <div class="shyTab">
                     </div>
                     <div class="noun">
@@ -44,19 +111,100 @@
                         </ul>
                     </div>
 
-                    <div class="com" style="margin-top:40px;">
-                        <div class="tabbable"> <!-- Only required for left/right tabs -->
+                    <div class="com" id="para" style="margin-top:40px;">
+                        <div class="tabbable">
+                            <!-- Only required for left/right tabs -->
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#tab1" data-toggle="tab">网络释义</a></li>
                                 <li><a href="#tab2" data-toggle="tab">专业释义</a></li>
-                                <li><a href="#tab2" data-toggle="tab">英英释义</a></li>
+                                <li><a href="#tab3" data-toggle="tab">英英释义</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active wtcont" id="tab1">
+                                <div class="tab-pane active" id="tab1">
+                                    <div class="wtcont"></div>
+                                    <div class="wtcontfoot" style="margin:inherit; margin-top:15px;">
+                                        <div class="wtbox"></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <div class="wtcont"></div>
+                                    <div class="wtcontfoot" style="margin:inherit; margin-top:15px;">
+                                        <div class="wtbox"></div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <div class="wt3-h">
+                                        <div class="wt-h">
+                                        </div>
+                                        <ul class="wt-h-ul"></ul>
+                                    </div>
 
                                 </div>
-                                <div class="tab-pane" id="tab2"></div>
-                                <div class="tab-pane" id="tab2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dictionary" id="dict">
+                        <div class="tabbable">
+                            <!-- Only required for left/right tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tad1" data-toggle="tab">21世纪大英汉词典</a></li>
+                                <li><a href="#tad2" data-toggle="tab">柯林斯英汉双解大词典</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tad1">
+                                    <div class="dict">
+                                        <h4 class="dict-h4"></h4>
+                                        <ul>
+                                            <li>
+                                                <span class="dict-span"></span>
+                                                <ul class="dict-ul">
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tad2">
+                                   <div class="dict">
+                                        <h4 class="dict-h4"></h4>
+                                        <ul>
+                                            <li>
+                                                <span class="dict-span"></span>
+                                                <ul class="dict-ul">
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="vowel" id="vowe">
+                        <div class="tabbable">
+                            <!-- Only required for left/right tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tav1" data-toggle="tab">双语例句</a></li>
+                                <li><a href="#tav2" data-toggle="tab">原声例句</a></li>
+                                <li><a href="#tav3" data-toggle="tab">权威例句</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tav1">
+                                    <div class="ovadi">
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tav2">
+                                    <div class="ovadi">
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tav3">
+                                    <div class="ovadi">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -65,31 +213,36 @@
                     <p class="hd">词组短语</p>
                     <div class="rtNav">
                         <div class="tnav"></div>
-                        <div class="footnav" style="cursor: pointer;color:#35a1d4;margin:0em 0.6em;" >
+                        <div class="footnav" style="cursor: pointer;color:#35a1d4;margin:0em 0.6em;">
                             <a href="#" class="glyphicon glyphicon-menu-down dowup" style="color:#35a1d4;"></a>
-                            <span class="more">更多</span>
-                            词组短语
+                            <span class="more">更多</span> 词组短语
                         </div>
                     </div>
-                    <div class="baner" style="margin-bottom: 15px;"> 
+                    <div class="baner" style="margin-bottom: 15px;">
                         <div class="baner-hear" style="width:100%;margin-top:10px; background-color:red;">
                             <a href="https://lp.tutorabc.com.cn/lpgs/QSsHKDMZML/index.html?fromwhere=deg7SwfK6c&gsadid=gad_158_amnvx1z7&utm_medium=deg7SwfK6c&utm_source=%E7%BD%91%E6%98%93%E6%9C%89%E9%81%93%E6%96%B0%E8%B4%A6%E6%88%B73&utm_channel=%E4%B8%AD%E5%88%86%E5%A4%96%E5%9B%BD%E5%A5%B3%E7%AF%87%E3%80%91&utm_account=VIPABC-DRA&utm_campaign=NONSEM&utm_content=%E8%AF%8D%E5%85%B8%2f250*250&utm_adgroup=%20%E9%95%BF%E7%89%88%E5%A7%9A%E6%98%8E%E8%BD%BB%E6%9D%BE%E7%AF%87&utm_term=20170520%E3%80%90%E8%AF%8D%E5%85%B8%2f250*250%2f%E4%B8%AD%E5%88%86%E5%A4%96%E5%9B%BD%E5%A5%B3%E7%AF%87%E3%80%91%20%E9%95%BF%E7%89%88%E5%A7%9A%E6%98%8E%E8%BD%BB%E6%9D%BE%E7%AF%87"><img src="../image/eg.jpg" class="img-responsive" style="width:100%;" alt="课程"></a>
-
                         </div>
                     </div>
-
-
-
                 </div>
-         </div>  
-         </div> 
+            </div>
+        </div>
 
     </div>
 </body>
-    <script src="../dist/js/jquery.js"></script>
-    <script src="../dist/js/bootstrap.min.js"></script>
-    <script src="../js/ceiling.js"></script>
+<script src="../dist/js/jquery.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<script src="../js/ceiling.js"></script>
+<script>
+</script>
+ <!-- Swiper JS -->
+    <script src="../swiper/bonder.js"></script>
+
+    <!-- Initialize Swiper -->
     <script>
-    
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        autoplay:1500,
+    });
     </script>
 </html>

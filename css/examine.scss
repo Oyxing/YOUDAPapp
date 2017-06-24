@@ -30,11 +30,9 @@ a {
     padding-top: 30px;
     .content-lf {
         min-height: 100px;
-        background-color: red;
     }
     .content-rt {
         min-height: 100px;
-        background-color: #ff0;
         .hd {
             height: 44px;
             line-height: 44px;
@@ -51,6 +49,15 @@ a {
         .noun li {
             font-weight: bold;
             color: #434343;
+        }
+        .Youdao{
+            position: relative;
+            width: 100%;
+           min-height: 100px;
+            .display {
+                display: none;
+            }  
+
         }
     }
 }
@@ -69,3 +76,36 @@ a {
         }
     }
 }
+
+.wtcont .display {
+    display: none;
+}
+
+.dict-ul .display {
+    display: none;
+}
+
+ .ifrom {
+                    width: 200px;
+                    height: 100%;
+                }
+                .ifrom-lf{
+                    position: absolute;
+                    font-size: 20px;
+                    
+                    span{
+                        color:red;
+                        z-index: 10000;
+                        transition:all 1s ease 0s;
+                   }
+
+                }
+
+// @keyframes move {
+//         0%{ top:0px;left: 0px;}
+//         25%{top: 100px;left:100px;}
+//         50%{top: 200px;left:200px;}
+//         75%{top: 300px;left:300px;}
+//         100%{top: 400px;left:400px;}
+ 
+// // }

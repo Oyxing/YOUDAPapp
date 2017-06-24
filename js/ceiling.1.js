@@ -18,7 +18,6 @@ var html12 = "";
 var html13 = "";
 // 双语
 var html14 = "";
-
 document.getElementById("translate").addEventListener('click', function() {
     var value = $(".discrete").val();
     $(".shyTab").children().remove();
@@ -34,14 +33,6 @@ document.getElementById("translate").addEventListener('click', function() {
     $(".ovadi").children().remove();
     val(value);
 });
-
-
-
-$(".auth").click(function(){
-    var value = $(".discrete").val();
-    location.href = "http://www.youdao.com/w/eng/"+value+"/#keyfrom=dict2.index"
-})
-
 
 function val(value) {
     html1 = "";
@@ -62,66 +53,46 @@ function val(value) {
             //     }else{
             //         alert("没有")
             //     }
-            if(obj.splongman == undefined){
-                  $( ".ifrom-lf").removeClass("display");
-            }else{
-            // 单词头部
-              $( ".ifrom-lf").add("display");
-                    var uKvideocal = obj.splongman.wordList[0].Entry.Head[0].VIDEOCAL[0]
-                        html1 = '<div class="shyTab">' +
-                            '<h2 class="h2-shy">' +
-                            '<span>' + name + '</span>' +
-                            '<a href="#" style="font-size:0.8em;color:#ccc;margin: 0px 0px 0px 8px;" class="glyphicon glyphicon-plus shy-josn" title="添加单词"></a>' +
-                            '<div class="pronounce">' +
-                            '<span class="pronoun" style="font-size: 0.7em;">' +
-                            '英' +
-                            '<span style="font-size:0.5em;margin:0 0.8em;">[' + uKphone + ']</span>' +
-                            '<span title="真人发音" class="glyphicon glyphicon-volume-up " id="playle" style="color:#ccc;top:0.3em;">' +
-                            '<audio class="playle"  src=' + uKvideocal + ' ></audio>' +
-                            '</span>' +
-                            '</span>' +
-                            '</div>' +
-                            '</h2>';
-                        $('.shyTab').append(html1);
 
-            }
 
-    
-            if( obj.syno == undefined){
-                  $( ".ifrom-lf").removeClass("display");
-            }else{
-                 $( ".ifrom-lf").addClass("display");
+            var uKvideocal = obj.splongman.wordList[0].Entry.Head[0].VIDEOCAL[0]
+            html1 = '<div class="shyTab">' +
+                '<h2 class="h2-shy">' +
+                '<span>' + name + '</span>' +
+                '<a href="#" style="font-size:0.8em;color:#ccc;margin: 0px 0px 0px 8px;" class="glyphicon glyphicon-plus shy-josn" title="添加单词"></a>' +
+                '<div class="pronounce">' +
+                '<span class="pronoun" style="font-size: 0.7em;">' +
+                '英' +
+                '<span style="font-size:0.5em;margin:0 0.8em;">[' + uKphone + ']</span>' +
+                '<span title="真人发音" class="glyphicon glyphicon-volume-up " id="playle" style="color:#ccc;top:0.3em;">' +
+                '<audio class="playle"  src=' + uKvideocal + ' ></audio>' +
+                '</span>' +
+                '</span>' +
+                '</div>' +
+                '</h2>';
+            $('.shyTab').append(html1);
             // 多解释
             var objTrs = obj.syno.synos;
             $.each(objTrs, function(index, vl) {
                     html2 = '<li>' + vl.syno.pos + vl.syno.tran + '</li>'
                     $(".nounul").append(html2)
                 })
-            }
-            
-            if(obj.phrs == undefined){
-                  $( ".ifrom-lf").removeClass("display");
-            }else{
-        // 多组词
-                $( ".ifrom-lf").addClass("display");
+                // 多组词
 
-                var objPhrs = obj.phrs.phrs
-                $.each(objPhrs, function(index, vl) {
-                    html3 = '<p class="danci"> <span>' +
-                        '<a href="#" style="color:#35a1d4;margin: 0px 12px;">' + vl.phr.headword.l.i + '</a>' +
-                        vl.phr.trs[0].tr.l.i +
-                        '</span></p>'
-                    $(".tnav").append(html3)
-                })
-                var op = $(".danci")
-                for (i = 0; i < op.length; i++) {
-                    if (i > 6) {
-                        op[i].className = "display";
-                    }
+            var objPhrs = obj.phrs.phrs
+            $.each(objPhrs, function(index, vl) {
+                html3 = '<p class="danci"> <span>' +
+                    '<a href="#" style="color:#35a1d4;margin: 0px 12px;">' + vl.phr.headword.l.i + '</a>' +
+                    vl.phr.trs[0].tr.l.i +
+                    '</span></p>'
+                $(".tnav").append(html3)
+            })
+            var op = $(".danci")
+            for (i = 0; i < op.length; i++) {
+                if (i > 6) {
+                    op[i].className = "display";
                 }
             }
-
-          
             // 更多
             autoplay()
             var x = 1;
@@ -193,13 +164,6 @@ function val(value) {
                     }
                 }
             }
-
-            if(obj.ee == undefined){
-
-               $( ".ifrom-lf").removeClass("display");
-
-            }else{
-                $( ".ifrom-lf").addClass("display");
             //    英英意译
             // 单词
             $.each(obj.ee.word, function(index, vl) {
@@ -233,12 +197,7 @@ function val(value) {
                 '</ul>' +
                 '</li>'
             $(".wt-h-ul").append(html6)
-            }
-            if(obj.ec21 == undefined){
-                  $( ".ifrom-lf").removeClass("display");
-            }else{
                 // 词典
-                  $( ".ifrom-lf").addClass("display");
             html13 = '<span>[' + obj.ec21.word[0].phone + ']</span>';
             $(".dict-h4").append(html13)
             $.each(obj.ec21.word[0].trs, function(index, vle) {
@@ -246,8 +205,8 @@ function val(value) {
                     html11 = '<li class="dict-li" style="margin-left:20px;"><span>' + index + '</span><span style="margin:0em 0.5em;">' + ivl.l.i[0] + '</span></li>'
                     $(".dict-ul").append(html11)
                 })
-                // html12 = '<span class="dict-span">' + vle.pos + '</span>';
-                // $(".dict-span").append(html12)
+                html12 = '<span class="dict-span">' + vle.pos + '</span>';
+                $(".dict-span").append(html12)
             })
 
             var odicli = $(".dict-li")
@@ -257,35 +216,33 @@ function val(value) {
                     odicli[i].className = "display";
                 }
             }
-            }
-            
-            if(obj.media_sents_part == undefined){
-                  $( ".ifrom-lf").removeClass("display");
-            }else{
-                // 双语
-                  $( ".ifrom-lf").addClass("display");
-                    $.each(obj.media_sents_part.sent, function(index, vl) {
-                        html14 = '<p class="ovadi-p" style="margin: 1.2em 0em 0em 2em;"><span>' + index + '</span> <span>' + vl.eng + '</span> <span class="glyphicon glyphicon-volume-down clickaud" title="点击播放"  style="font-size:1.7em;top: 0.3em;left: 0.3em; color:#ccc;"></span>' +
-                            '<audio class="audplayle"  src=' + vl.snippets.snippet[0].streamUrl + ' ></audio>  </p>'
-                        $(".ovadi").append(html14);
-                    })
-                    $(".clickaud")
-                    var clickaud = document.querySelectorAll(".clickaud");
-                    var cliplay = document.querySelectorAll(".audplayle");
-                    for (i = 0; i < $(".clickaud").length; i++) {
-                        clickaud[i].index = i;
-                        var x = 1;
-                        clickaud[i].onclick = function() {
+            // 双语
+            console.log(obj.media_sents_part.sent)
+            $.each(obj.media_sents_part.sent, function(index, vl) {
+                console.log(vl.eng)
+                console.log(vl.snippets.snippet[0].streamUrl)
+                html14 = '<p class="ovadi-p" style="margin: 1.2em 0em 0em 2em;"><span>' + index + '</span> <span>' + vl.eng + '</span> <span class="glyphicon glyphicon-volume-down clickaud" title="点击播放"  style="font-size:1.7em;top: 0.3em;left: 0.3em; color:#ccc;"></span>' +
+                    '<audio class="audplayle"  src=' + vl.snippets.snippet[0].streamUrl + ' ></audio>  </p>'
+                $(".ovadi").append(html14);
+            })
+            $(".clickaud")
+            var clickaud = document.querySelectorAll(".clickaud");
+            var cliplay = document.querySelectorAll(".audplayle");
+            console.log(clickaud)
+            console.log(cliplay)
+            for (i = 0; i < $(".clickaud").length; i++) {
+                clickaud[i].index = i;
+                var x = 1;
+                clickaud[i].onclick = function() {
 
-                            if (x) {
-                                cliplay[this.index].play();
-                                x = 0;
-                            } else {
-                                cliplay[this.index].pause();
-                                x = 1;
-                            }
-                        }
+                    if (x) {
+                        cliplay[this.index].play();
+                        x = 0;
+                    } else {
+                        cliplay[this.index].pause();
+                        x = 1;
                     }
+                }
             }
         },
         error: function(res) {
@@ -304,4 +261,3 @@ function autoplay() {
     })
 
 }
-

@@ -8,9 +8,7 @@
 a {
   color: black;
 }
-a:hover{
-  text-decoration: none;
-}
+
 .ceiling {
   position: fixed;
   top: 0;
@@ -34,7 +32,6 @@ a:hover{
 
 #scontainer .content-lf {
   min-height: 100px;
-  background-color: red;
 }
 
 #scontainer .content-rt {
@@ -62,6 +59,16 @@ a:hover{
   color: #434343;
 }
 
+#scontainer .content-con .Youdao {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+}
+
+#scontainer .content-con .Youdao .display {
+  display: none;
+}
+
 .shyTop {
   margin-top: 0;
   overflow: hidden;
@@ -77,4 +84,28 @@ a:hover{
   color: #666;
   display: inline-block;
   line-height: 26px;
+}
+
+.wtcont .display {
+  display: none;
+}
+
+.dict-ul .display {
+  display: none;
+}
+
+.ifrom {
+  width: 200px;
+  height: 100%;
+}
+
+.ifrom-lf {
+  position: absolute;
+  font-size: 20px;
+}
+
+.ifrom-lf span {
+  color: red;
+  z-index: 10000;
+  transition: all 1s ease 0s;
 }

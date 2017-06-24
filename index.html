@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="./image/01.png">
-    <title>我的词典</title> 
+    <title>我的词典</title>
     <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body onload="shop(x)">
-      <!--导航-->
+    <!--导航-->
     <nav class="navbar navbar-default">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,7 +33,8 @@
                     <li><a href="#">翻译</a></li>
                     <li><a href="#">精品课</a></li>
                     <li><a href="#">云笔记</a></li>
-                    <li><a href="#">人工翻译</a></a></li>
+                    <li><a href="#">人工翻译</a></a>
+                    </li>
                     <li><a href="#">慧慧</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th-large -size" style="font-size:20px;line-height:10px;color:#ccc;"></span> 更多产品</a>
@@ -45,60 +48,60 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                   
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-5 " >
-            <img class="img-responsive"  src="./image/logo.png" alt="">
+    <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-5 ">
+        <img class="img-responsive" src="./image/logo.png" alt="">
+    </div>
+    <div class="container ceiling">
+        <div class="col-xs-10 col-sm-offset-2 col-md-6 col-md-offset-1 ">
+            <img class="img-responsive" src="./image/logo.png" alt="">
         </div>
-     <div class="container ceiling" >
-        <div class="col-xs-10 col-sm-offset-2 col-md-6 col-md-offset-1 " >
-            <img class="img-responsive"  src="./image/logo.png" alt="">
-        </div>
-        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3" style="width:56%;" >
+        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3" style="width:56%;">
             <div class="input">
                 <select class="btn">
                     <option value="nihao">中英</option>
                     <option value="nihao">英中</option>
                 </select>
-                <input type="text" class="btn btn-width discrete" name="q"  placeholder="输入翻译的文本">
-                <input type="button" class="btn btn-danger" id="translate" name="" value="翻译">   
+                <input type="text" class="btn btn-width discrete" name="q" placeholder="输入翻译的文本">
+                <input type="button" class="btn btn-danger" id="translate" name="" value="翻译">
             </div>
         </div>
     </div>
     <div id="margin2"></div>
-        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 " style="width:56%;" >
-            <div class="input">
-                 <select class="btn">
+    <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 " style="width:56%;">
+        <div class="input">
+            <select class="btn">
                     <option value="nihao">中英</option>
                     <option value="nihao">英中</option>
                 </select>
             <input type="text" class="btn btn-width discrete1" name="q" placeholder="输入翻译的文本">
-            <input type="button" class="btn btn-danger " id="translate1" name="" value="翻译">      
+            <input type="button" class="btn btn-danger " id="translate1" name="" value="翻译">
         </div>
     </div>
-  
+
     <div id="margin3">
-        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 hove-color" >
-        <span><a href="#">下载词典客户端</a></span>|
-        <span><a href="#">下载词典移动端</a></span>|
-        <span><a href="#"> 查看单词本</a></span>|
-        <span><a href="#">秒懂译义</a></span>
+        <div class="col-xs-10 col-sm-offset-1 col-md-6 col-md-offset-3 hove-color">
+            <span><a href="#">下载词典客户端</a></span>|
+            <span><a href="#">下载词典移动端</a></span>|
+            <span><a href="#"> 查看单词本</a></span>|
+            <span><a href="#">秒懂译义</a></span>
         </div>
     </div>
     <div class="crl"></div>
     <div id="adv">
-       <div class="col-xs-3 col-sm-offset-10 col-md-9 col-md-offset-1 hove-nav" >
+        <div class="col-xs-3 col-sm-offset-10 col-md-9 col-md-offset-1 hove-nav">
             <div class="fl">
                 <div class="advnav" style="height:50px;">
                     <div class="head">
                         <div class="annav">
                             <span class="active">精选阅读</span>
-         
+
                             <span>必备课程</span>
                             <span>折扣精选</span>
                         </div>
@@ -123,74 +126,72 @@
 
                         </div>
                     </div>
-            </div>
-         </div>
-        <div class="rt" >  
-            <div class="popout ">
-                <iframe src=""></iframe>
-                <div class="hd">
-                    <a href="#">热门课程</a>
                 </div>
-                <div class="bd">
-                 
-                    
-
+            </div>
+            <div class="rt">
+                <div class="popout ">
+                    <iframe src=""></iframe>
+                    <div class="hd">
+                        <a href="#">热门课程</a>
+                    </div>
+                    <div class="bd">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="crl"></div>
-</body >
-    <script src="./dist/js/jquery.js"></script>
-    <script src="./dist/js/bootstrap.min.js"></script>
-    <script src="./js/ment.js"></script>
-    
-    
-    <script>
-          document.getElementById("translate").addEventListener('click', function() {
-                var value = $(".discrete").val();
-                location.href = "./dome/examine.html"+"?"+value;
-		        });      
-        document.getElementById("translate1").addEventListener('click', function() {
-                var value = $(".discrete1").val();              
-                location.href = "./dome/examine.html"+"?"+value;                
-		        });
-                var html = "";
-          $.ajax({
+        <div class="crl"></div>
+</body>
+<script src="./dist/js/jquery.js"></script>
+<script src="./dist/js/bootstrap.min.js"></script>
+<script src="./js/ment.js"></script>
 
-                  type: "get",
-                  url: "./php/1.php",
-                  dataType: "json",
-                  success: function(data) {		
-                      	 objx = data.media_sents_part.sent;
-                        $.each(objx,function(i,vl){
-                            console.log(vl.snippets.snippet[0])
-                            var imageUrl = vl.snippets.snippet[0].imageUrl;
-                            var source = vl.snippets.snippet[0].source;
-                            var sourceUrl =vl.snippets.snippet[0].sourceUrl;
-                            var name = vl.snippets.snippet[0].name;
-                            html = ' <div class="camear">'+
-                        '<a href='+sourceUrl+'>'+
-                            '<img class="img-responsive" src="'+imageUrl+'" alt='+name+'>'+
-                        '</a>'+
-                        '<div class="camear-detail">'+
-                            '<a href='+sourceUrl+'>'+
-                                '<h3>'+source+'</h3>'+
-                            '</a>'+
-                            '<p class="userNum">已报名:14259人</p>'+
-                            '<p class="price">'+
-                                '<span class="glyphicon glyphicon-yen"></span>'+
-                                '0'+
-                            '</p>'+
-                        '</div>'+
+
+<script>
+    document.getElementById("translate").addEventListener('click', function() {
+        var value = $(".discrete").val();
+        location.href = "./dome/examine.html" + "?" + value;
+    });
+    document.getElementById("translate1").addEventListener('click', function() {
+        var value = $(".discrete1").val();
+        location.href = "./dome/examine.html" + "?" + value;
+    });
+    var html = "";
+    $.ajax({
+
+        type: "get",
+        url: "./php/1.php",
+        dataType: "json",
+        success: function(data) {
+            objx = data.media_sents_part.sent;
+            $.each(objx, function(i, vl) {
+                console.log(vl.snippets.snippet[0])
+                var imageUrl = vl.snippets.snippet[0].imageUrl;
+                var source = vl.snippets.snippet[0].source;
+                var sourceUrl = vl.snippets.snippet[0].sourceUrl;
+                var name = vl.snippets.snippet[0].name;
+                html = ' <div class="camear">' +
+                    '<a href=' + sourceUrl + '>' +
+                    '<img class="img-responsive" src="' + imageUrl + '" alt=' + name + '>' +
+                    '</a>' +
+                    '<div class="camear-detail">' +
+                    '<a href=' + sourceUrl + '>' +
+                    '<h3>' + source + '</h3>' +
+                    '</a>' +
+                    '<p class="userNum">已报名:14259人</p>' +
+                    '<p class="price">' +
+                    '<span class="glyphicon glyphicon-yen"></span>' +
+                    '0' +
+                    '</p>' +
+                    '</div>' +
                     '</div>'
 
-                             $('.bd').append(html);
-                               
-                        })
-                    
-                }
-            
-         })
-    </script>
+                $('.bd').append(html);
+
+            })
+
+        }
+
+    })
+</script>
+
 </html>
