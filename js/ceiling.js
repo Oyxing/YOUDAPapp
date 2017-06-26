@@ -27,11 +27,11 @@ document.getElementById("translate").addEventListener('click', function() {
     $(".wtcont").children().remove();
     $(".wt-h").children().remove();
     $(".wt-h-ul").children().remove();
-
     $(".dict-ul").children().remove();
     $(".dict-h4").children().remove();
     $(".dict-span").children().remove();
     $(".ovadi").children().remove();
+    $(".ifrom-lf").addClass("display");
     val(value);
 });
 
@@ -39,7 +39,7 @@ document.getElementById("translate").addEventListener('click', function() {
 
 $(".auth").click(function(){
     var value = $(".discrete").val();
-    location.href = "http://www.youdao.com/w/eng/"+value+"/#keyfrom=dict2.index"
+    location.href = "http://www.youdao.com/w/eng/"+value+"/#keyfrom=dict2.index";
 })
 
       // 创建数据库
@@ -50,7 +50,7 @@ $(".auth").click(function(){
 			size: 10 * 20 * 1024,
 		};
 		var db = window.openDatabase(config.name, config.version, config.desc, config.size);
-		crateTable(db);
+		            crateTable(db);
        		function crateTable() {
 
             // 创建数据表
@@ -73,18 +73,10 @@ function val(value) {
             var uKphone = obj.ec.word[0].ukphone;
             var uSphone = obj.ec.word[0].usphone;
             var name = obj.input;
-            console.log(obj)
-
-            // if(obj.longman.isGood == true){
-            //         alert("有");
-            //     }else{
-            //         alert("没有")
-            //     }
             if(obj.splongman == undefined){
                   $( ".ifrom-lf").removeClass("display");
             }else{
             // 单词头部
-              $( ".ifrom-lf").add("display");
                     var uKvideocal = obj.splongman.wordList[0].Entry.Head[0].VIDEOCAL[0]
                         html1 = '<div class="shyTab">' +
                             '<h2 class="h2-shy">' +
@@ -101,12 +93,18 @@ function val(value) {
                             '</div>' +
                             '</h2>';
                         $('.shyTab').append(html1);
-
             }
+
             document.getElementById("addition").addEventListener('click',function(){
                 var values
+                 if(obj.splongman == undefined){
+                  $( ".ifrom-lf").removeClass("display");
+            }else{   
+                             
+            // 单词头部
                 var price = obj.splongman.wordList[0].Entry.Head[0].HWD[0];
-               
+              
+            }
                     $.each(obj.syno.synos, function(index, vl) {
                              
                                 console.log(vl.syno.pos + vl.syno.tran)
@@ -129,7 +127,6 @@ function val(value) {
             if( obj.syno == undefined){
                   $( ".ifrom-lf").removeClass("display");
             }else{
-              $( ".ifrom-lf").add("display");
                 
             // 多解释
             var objTrs = obj.syno.synos;
@@ -143,7 +140,6 @@ function val(value) {
                   $( ".ifrom-lf").removeClass("display");
             }else{
         // 多组词
-
                 var objPhrs = obj.phrs.phrs
                 $.each(objPhrs, function(index, vl) {
                     html3 = '<p class="danci"> <span>' +
