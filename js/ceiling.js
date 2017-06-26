@@ -42,7 +42,25 @@ $(".auth").click(function(){
     location.href = "http://www.youdao.com/w/eng/"+value+"/#keyfrom=dict2.index"
 })
 
+      // 创建数据库
+        var config = { //初始化websql数据库的参数信息
+			name: 'mages',
+			version: '2.0',
+			desc: 'manage my mysql',
+			size: 10 * 20 * 1024,
+		};
+		var db = window.openDatabase(config.name, config.version, config.desc, config.size);
+		crateTable(db);
+       		function crateTable() {
 
+            // 创建数据表
+        var sql = 'create table if not exists mages(id INTEGER PRIMARY KEY ASC,price TEXT, account TEXT,  note_date TEXT)';
+			db.transaction(function(tx) {
+				tx.executeSql(sql, null, function(tx, rs) {
+					console.log('执行sql成功');
+				});
+			});
+        }
 function val(value) {
     html1 = "";
     $.ajax({
@@ -71,7 +89,7 @@ function val(value) {
                         html1 = '<div class="shyTab">' +
                             '<h2 class="h2-shy">' +
                             '<span>' + name + '</span>' +
-                            '<a href="#" style="font-size:0.8em;color:#ccc;margin: 0px 0px 0px 8px;" class="glyphicon glyphicon-plus shy-josn" title="添加单词"></a>' +
+                            '<a href="#" style="font-size:0.8em;color:#ccc;margin: 0px 0px 0px 8px;" id="addition" class="glyphicon glyphicon-plus shy-josn" title="添加单词"></a>' +
                             '<div class="pronounce">' +
                             '<span class="pronoun" style="font-size: 0.7em;">' +
                             '英' +
@@ -85,12 +103,34 @@ function val(value) {
                         $('.shyTab').append(html1);
 
             }
-
-    
+            document.getElementById("addition").addEventListener('click',function(){
+                var values
+                var price = obj.splongman.wordList[0].Entry.Head[0].HWD[0];
+               
+                    $.each(obj.syno.synos, function(index, vl) {
+                             
+                                console.log(vl.syno.pos + vl.syno.tran)
+                    var account = vl.syno.pos + vl.syno.tran
+                           
+                    localStorage.setItem("account",account)
+                         localStorage.setItem("value",price)
+                values = [price,account]
+                        })
+                        console.log(values)
+        var sql = "INSERT INTO mages (price, account, note_date) VALUES (?,?,DATETIME('now', 'localtime'))";
+			db.transaction(function(tx) {
+				tx.executeSql(sql, values, function(tx, rs) {
+						var effectRow = rs.rows;
+                        console.log(tx)
+				});
+			})
+        })
+                
             if( obj.syno == undefined){
                   $( ".ifrom-lf").removeClass("display");
             }else{
-                 $( ".ifrom-lf").addClass("display");
+              $( ".ifrom-lf").add("display");
+                
             // 多解释
             var objTrs = obj.syno.synos;
             $.each(objTrs, function(index, vl) {
@@ -103,7 +143,6 @@ function val(value) {
                   $( ".ifrom-lf").removeClass("display");
             }else{
         // 多组词
-                $( ".ifrom-lf").addClass("display");
 
                 var objPhrs = obj.phrs.phrs
                 $.each(objPhrs, function(index, vl) {
@@ -199,7 +238,6 @@ function val(value) {
                $( ".ifrom-lf").removeClass("display");
 
             }else{
-                $( ".ifrom-lf").addClass("display");
             //    英英意译
             // 单词
             $.each(obj.ee.word, function(index, vl) {
@@ -238,7 +276,6 @@ function val(value) {
                   $( ".ifrom-lf").removeClass("display");
             }else{
                 // 词典
-                  $( ".ifrom-lf").addClass("display");
             html13 = '<span>[' + obj.ec21.word[0].phone + ']</span>';
             $(".dict-h4").append(html13)
             $.each(obj.ec21.word[0].trs, function(index, vle) {
@@ -263,7 +300,6 @@ function val(value) {
                   $( ".ifrom-lf").removeClass("display");
             }else{
                 // 双语
-                  $( ".ifrom-lf").addClass("display");
                     $.each(obj.media_sents_part.sent, function(index, vl) {
                         html14 = '<p class="ovadi-p" style="margin: 1.2em 0em 0em 2em;"><span>' + index + '</span> <span>' + vl.eng + '</span> <span class="glyphicon glyphicon-volume-down clickaud" title="点击播放"  style="font-size:1.7em;top: 0.3em;left: 0.3em; color:#ccc;"></span>' +
                             '<audio class="audplayle"  src=' + vl.snippets.snippet[0].streamUrl + ' ></audio>  </p>'
@@ -276,7 +312,6 @@ function val(value) {
                         clickaud[i].index = i;
                         var x = 1;
                         clickaud[i].onclick = function() {
-
                             if (x) {
                                 cliplay[this.index].play();
                                 x = 0;
@@ -287,6 +322,7 @@ function val(value) {
                         }
                     }
             }
+
         },
         error: function(res) {
             console.log(res);
@@ -305,3 +341,37 @@ function autoplay() {
 
 }
 
+var wordhtml = "";
+    document.getElementById("dropword").addEventListener('click',function(){
+         $(".menuword").children().remove();
+        //读取数据
+			db.transaction(function(tx) {
+				tx.executeSql('SELECT * FROM mages', [], function(tx, results) {
+				len = results.rows.length;
+                    console.log(results.rows)
+
+                    $.each(results.rows,function(index,vl){
+                        console.log(vl)
+                        console.log(vl.account)
+                        console.log(vl.price)
+
+
+                    wordhtml = '<li><a href="#" onclick=" return false;><span>'+vl.price+'</span><span style="margin:0em 0.3em;">'+vl.account+'</span><span style="margin:0em 0.3em;background-color:red;" onclick="texDelete('+vl.id+')">删除</span></a></li>'    
+
+                            $('.menuword').append(wordhtml)
+                    })
+
+    
+            	})
+			});
+
+    })
+
+    	function texDelete(id){
+
+				db.transaction(function(tx) {
+				tx.executeSql('DELETE FROM mages WHERE id='+id);
+
+			});
+
+		}
