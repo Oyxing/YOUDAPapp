@@ -355,9 +355,7 @@ var wordhtml = "";
                         console.log(vl.account)
                         console.log(vl.price)
 
-
-                    wordhtml = '<li><a href="#" onclick=" return false;><span>'+vl.price+'</span><span style="margin:0em 0.3em;">'+vl.account+'</span><span style="margin:0em 0.3em;background-color:red;" onclick="texDelete('+vl.id+')">删除</span></a></li>'    
-
+                        wordhtml = '<li><a href="#" onclick="return false;"><span>'+vl.price+'</span><span style="margin:0em 0.3em;">'+vl.account+'</span><span style="margin:0em 0.3em;background-color:red;float:right;" onclick="texDelete('+vl.id+')">删除</span></a></li>'    
                             $('.menuword').append(wordhtml)
                     })
 
@@ -368,10 +366,7 @@ var wordhtml = "";
     })
 
     	function texDelete(id){
-
 				db.transaction(function(tx) {
 				tx.executeSql('DELETE FROM mages WHERE id='+id);
-
 			});
-
 		}
